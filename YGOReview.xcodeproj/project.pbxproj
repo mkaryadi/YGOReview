@@ -31,6 +31,7 @@
 		DB2153C6284455C10008AD5B /* Signed_In.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2153C5284455C10008AD5B /* Signed_In.swift */; };
 		DB58CFA32842C45F00064E22 /* Sign_In.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB58CFA22842C45F00064E22 /* Sign_In.swift */; };
 		DB58CFA52842C46A00064E22 /* Sign_Up.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB58CFA42842C46A00064E22 /* Sign_Up.swift */; };
+		DBDBB1AF2847318300B03083 /* DataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBB1AE2847318300B03083 /* DataRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		DB2153C5284455C10008AD5B /* Signed_In.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signed_In.swift; sourceTree = "<group>"; };
 		DB58CFA22842C45F00064E22 /* Sign_In.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign_In.swift; sourceTree = "<group>"; };
 		DB58CFA42842C46A00064E22 /* Sign_Up.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign_Up.swift; sourceTree = "<group>"; };
+		DBDBB1AE2847318300B03083 /* DataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				C440CABD28403DCB00577720 /* ViewController.swift */,
 				C440CABF28403DCB00577720 /* Main.storyboard */,
 				DB2153C5284455C10008AD5B /* Signed_In.swift */,
+				DBDBB1AE2847318300B03083 /* DataRepository.swift */,
 				DB58CFA22842C45F00064E22 /* Sign_In.swift */,
 				DB58CFA42842C46A00064E22 /* Sign_Up.swift */,
 				C440CAC228403DCF00577720 /* Assets.xcassets */,
@@ -315,6 +318,7 @@
 				C440CABC28403DCB00577720 /* SceneDelegate.swift in Sources */,
 				DB58CFA32842C45F00064E22 /* Sign_In.swift in Sources */,
 				DB58CFA52842C46A00064E22 /* Sign_Up.swift in Sources */,
+				DBDBB1AF2847318300B03083 /* DataRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

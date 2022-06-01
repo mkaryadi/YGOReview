@@ -26,6 +26,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         PassWord.isSecureTextEntry = true
         super.viewDidLoad()
+        
+        let dataRepo = DataRepository()
+        dataRepo.getAllReviewsByUser("ramirost")
+        dataRepo.getAllReviewsByCard("Tornado Dragon")
+        
     }
     @IBAction func Enter_Email(_ sender: Any) {
         self.email = Email.text!
