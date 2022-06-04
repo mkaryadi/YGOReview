@@ -22,8 +22,12 @@ import UIKit
 class ViewController: UIViewController {
     private var email = ""
     private var password = ""
+    
+    @IBOutlet var emailField: UITextField!
+    @IBOutlet var passwordField: UITextField!
+    
     override func viewDidLoad() {
-        PassWord.isSecureTextEntry = true
+        passwordField.isSecureTextEntry = true
         super.viewDidLoad()
         
         let dataRepo = DataRepository()
@@ -31,17 +35,16 @@ class ViewController: UIViewController {
         dataRepo.getAllReviewsByCard("Tornado Dragon")
     }
 
-    @IBAction func Enter_Email(_ sender: Any) {
-        email = Email.text!
-    }
-    
-    @IBOutlet var PassWord: UITextField!
-    @IBAction func Enter_Password(_ sender: Any) {
-        print("ALeterrr PASSWorD SUBMITTeD")
-        password = PassWord.text!
+    @IBAction func enterEmail(_ sender: Any) {
+        email = emailField.text!
     }
 
-    @IBAction func Sign_Up(_ sender: Any) {
+    @IBAction func enterPassword(_ sender: Any) {
+        print("ALeterrr PASSWorD SUBMITTeD")
+        password = passwordField.text!
+    }
+
+    @IBAction func signUp(_ sender: Any) {
         if password.isEmpty || email.isEmpty ||
             email.count < 6 || password.count < 6
         {
@@ -75,7 +78,7 @@ class ViewController: UIViewController {
         }
     }
 
-    @IBAction func Sign_In(_ sender: Any) {
+    @IBAction func signIn(_ sender: Any) {
         if password.isEmpty && email.isEmpty ||
             email.count < 6 && password.count < 6
         {
@@ -123,6 +126,4 @@ class ViewController: UIViewController {
             NSLog("Alerted")
         })
     }
-    
-    @IBOutlet var Email: UITextField!
 }

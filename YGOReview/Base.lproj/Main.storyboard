@@ -40,7 +40,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="Enter_Email:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="0rx-fL-efd"/>
+                                            <action selector="enterEmail:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Wau-oE-it7"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Password:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B4h-rr-vIO">
@@ -48,7 +48,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="password"/>
                                         <connections>
-                                            <action selector="Enter_Password:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="cvf-rf-s8c"/>
+                                            <action selector="enterPassword:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="cLw-V6-IRF"/>
                                         </connections>
                                     </textField>
                                 </subviews>
@@ -64,7 +64,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sign Up"/>
                                 <connections>
-                                    <action selector="Sign_Up:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CUJ-8p-His"/>
+                                    <action selector="signUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wF6-gi-XGo"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ex0-en-dZJ">
@@ -72,7 +72,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sign In"/>
                                 <connections>
-                                    <action selector="Sign_In:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y5Q-h4-C33"/>
+                                    <action selector="signIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aGz-Gc-1h2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOM-Wk-N0N">
@@ -107,8 +107,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="2Wn-uY-7ZV"/>
                     <connections>
-                        <outlet property="Email" destination="fiU-Qu-E0l" id="Uy6-7n-YVD"/>
-                        <outlet property="PassWord" destination="B4h-rr-vIO" id="lDU-LV-dJe"/>
+                        <outlet property="emailField" destination="fiU-Qu-E0l" id="9fZ-lH-X01"/>
+                        <outlet property="passwordField" destination="B4h-rr-vIO" id="v87-GI-N6P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
