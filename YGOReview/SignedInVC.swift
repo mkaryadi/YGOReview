@@ -12,6 +12,7 @@ class TableViewDelegateAndDataSource: NSObject, UITableViewDataSource, UITableVi
     
     weak var vc : UIViewController?
     weak var table : UITableView?
+    var userType : String?
     
     // TODO: Initilize this with the names of cards from an API call
     var data = ["H - Heated Heart", "O - Oversoul", "W - Wing Catapault"]
@@ -34,10 +35,12 @@ class TableViewDelegateAndDataSource: NSObject, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cardVC = vc?.storyboard?.instantiateViewController(withIdentifier: "detail") as! CardVC
         cardVC.card = data[indexPath.row]
+        cardVC.signedIn = (userType == "new" || userType == "old")
         vc?.navigationController?.pushViewController(cardVC, animated: true)
         self.table!.deselectRow(at: indexPath, animated: true)
         
     }
+    
 }
 
 
@@ -49,12 +52,18 @@ class SignedInVC: UIViewController {
     var dataSourceAndDelegate = TableViewDelegateAndDataSource()
     
     override func viewDidLoad() {
-        print(userType)
+        
         super.viewDidLoad()
+        
         dataSourceAndDelegate.vc = self
+        dataSourceAndDelegate.userType = userType
         dataSourceAndDelegate.table = table
+        
         table.delegate = dataSourceAndDelegate
         table.dataSource = dataSourceAndDelegate
+        
+        self.title = "Cards"
+        navigationController?.navigationBar.topItem?.title = "Sign Out"
     }
     
 }

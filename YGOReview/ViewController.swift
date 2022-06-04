@@ -34,7 +34,13 @@ class ViewController: UIViewController {
         dataRepo.getAllReviewsByUser("ramirost")
         dataRepo.getAllReviewsByCard("Tornado Dragon")
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // Clear the email and password fields after signing out
+        emailField.text = ""
+        passwordField.text = ""
+    }
+    
     @IBAction func enterEmail(_ sender: Any) {
         email = emailField.text!
     }

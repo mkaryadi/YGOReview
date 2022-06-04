@@ -8,14 +8,30 @@
 import UIKit
 
 class ReviewVC: UIViewController {
-
+    
+    var card = ""
+    var signedIn = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.title = "Reviews for \(card)"
+        let addReviewButton = UIBarButtonItem(title: "Add a Review", style: .plain, target: self, action: #selector(ReviewVC.segueToReviewWriting))
+        self.navigationItem.rightBarButtonItem = addReviewButton
     }
     
-
+    @objc(segueToReviewWriting)
+    func segueToReviewWriting() {
+        if (signedIn) {
+            let writingVC = storyboard?.instantiateViewController(withIdentifier: "writing") as! WritingVC
+            navigationController?.pushViewController(writingVC, animated: true)
+        } else {
+            let alert = UIAlertController(title: "Reigstration Required", message: "You must have an account to leave a review!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true)
+        }
+    }
     /*
     // MARK: - Navigation
 

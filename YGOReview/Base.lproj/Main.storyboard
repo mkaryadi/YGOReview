@@ -16,6 +16,9 @@
                         <rect key="frame" x="0.0" y="44" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yJc-rn-Ak7">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="R6v-04-J2o"/>
                     </connections>
@@ -224,13 +227,40 @@ For this card's Synchro Summon, you can treat 1 Pendulum Summoned Pendulum Monst
                     <view key="view" contentMode="scaleToFill" id="6L6-kv-3Yf">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Reviews Yet!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDY-E7-aKC">
+                                <rect key="frame" x="153" y="453" width="122" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Wgf-Eg-Pwb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="VDY-E7-aKC" firstAttribute="centerX" secondItem="6L6-kv-3Yf" secondAttribute="centerX" id="mnv-Ru-fcI"/>
+                            <constraint firstItem="VDY-E7-aKC" firstAttribute="centerY" secondItem="6L6-kv-3Yf" secondAttribute="centerY" id="saF-Pc-iN8"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YyW-P9-6rh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2314" y="51"/>
+            <point key="canvasLocation" x="2313.0841121495328" y="50.53995680345573"/>
+        </scene>
+        <!--WritingVC-->
+        <scene sceneID="Nvb-uK-Zt1">
+            <objects>
+                <viewController storyboardIdentifier="writing" id="hcz-pa-pn3" customClass="WritingVC" customModule="YGOReview" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WIA-53-zzX">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Jw1-tm-Rui"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WSx-CB-5lS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3189" y="51"/>
         </scene>
     </scenes>
     <resources>
