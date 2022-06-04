@@ -68,9 +68,9 @@ class ViewController: UIViewController {
                 }
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let Logined_In_User = storyboard.instantiateViewController(withIdentifier: "Sucess") as! Signed_In
+                let Logined_In_User = storyboard.instantiateViewController(withIdentifier: "Success") as! Signed_In
                 Logined_In_User.Label = "User logined in email is " + self.email
-                self.show(Logined_In_User, sender: nil)
+                self.navigationController?.pushViewController(Logined_In_User, animated: true)
                 
             })
         }
@@ -101,12 +101,19 @@ class ViewController: UIViewController {
                 }
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let Logined_In_User = storyboard.instantiateViewController(withIdentifier: "Sucess") as! Signed_In
+                let Logined_In_User = storyboard.instantiateViewController(withIdentifier: "Success") as! Signed_In
                 Logined_In_User.Label = "This is a previous user " + self.email
-                self.show(Logined_In_User, sender: nil)
+                self.navigationController?.pushViewController(Logined_In_User, animated: true)
                 
             })
         }
+    }
+    
+    @IBAction func continueAsGuest(_ sender: Any) {
+        let loginedInGuestVC = storyboard?.instantiateViewController(withIdentifier: "Success") as! Signed_In
+        loginedInGuestVC.Label = "This is a guest"
+        self.navigationController?.pushViewController(loginedInGuestVC, animated: true)
+        
     }
     
     func displayAlert(_ title: String, _ message: String, _ LogError: String) {

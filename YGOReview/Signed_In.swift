@@ -12,6 +12,7 @@ class Signed_In: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         Labels.text = Label
+        print(self.toolbarItems)
     }
     @IBOutlet weak var Labels: UILabel!
 }
