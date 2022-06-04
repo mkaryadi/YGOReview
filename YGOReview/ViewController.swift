@@ -70,7 +70,7 @@ class ViewController: UIViewController {
                     return
                 }
                 
-                let newUserVC = self.storyboard?.instantiateViewController(withIdentifier: "Success") as! SignedIn
+                let newUserVC = self.storyboard?.instantiateViewController(withIdentifier: "Success") as! SignedInVC
                 newUserVC.userType = "new"
                 self.navigationController?.pushViewController(newUserVC, animated: true)
                 
@@ -102,7 +102,7 @@ class ViewController: UIViewController {
                     return
                 }
                 
-                let loggedInUserVC = self.storyboard?.instantiateViewController(withIdentifier: "Success") as! SignedIn
+                let loggedInUserVC = self.storyboard?.instantiateViewController(withIdentifier: "Success") as! SignedInVC
                 loggedInUserVC.userType = "old"
                 self.navigationController?.pushViewController(loggedInUserVC, animated: true)
                 
@@ -111,7 +111,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func continueAsGuest(_ sender: Any) {
-        let loginedInGuestVC = storyboard?.instantiateViewController(withIdentifier: "Success") as! SignedIn
+        let loginedInGuestVC = storyboard?.instantiateViewController(withIdentifier: "Success") as! SignedInVC
         loginedInGuestVC.userType = "guest"
         self.navigationController?.pushViewController(loginedInGuestVC, animated: true)
         

@@ -29,7 +29,7 @@ class TableViewDelegateAndDataSource: NSObject, UITableViewDataSource, UITableVi
 }
 
 
-class SignedIn: UIViewController {
+class SignedInVC: UIViewController {
     
     @IBOutlet weak var table: UITableView!
     
