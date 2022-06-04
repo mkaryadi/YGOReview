@@ -7,12 +7,12 @@
 
 import Foundation
 import UIKit
-class Signed_In: UIViewController{
-    public var Label = "";
+class SignedIn: UIViewController {
+    public var userType = ""
+
     override func viewDidLoad() {
+        print(userType)
         super.viewDidLoad()
-        Labels.text = Label
-        print(self.toolbarItems)
     }
-    @IBOutlet weak var Labels: UILabel!
+
 }

@@ -67,10 +67,9 @@ class ViewController: UIViewController {
                     return
                 }
                 
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let Logined_In_User = storyboard.instantiateViewController(withIdentifier: "Success") as! Signed_In
-                Logined_In_User.Label = "User logined in email is " + self.email
-                self.navigationController?.pushViewController(Logined_In_User, animated: true)
+                let newUserVC = self.storyboard?.instantiateViewController(withIdentifier: "Success") as! SignedIn
+                newUserVC.userType = "new"
+                self.navigationController?.pushViewController(newUserVC, animated: true)
                 
             })
         }
@@ -100,18 +99,17 @@ class ViewController: UIViewController {
                     return
                 }
                 
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let Logined_In_User = storyboard.instantiateViewController(withIdentifier: "Success") as! Signed_In
-                Logined_In_User.Label = "This is a previous user " + self.email
-                self.navigationController?.pushViewController(Logined_In_User, animated: true)
+                let loggedInUserVC = self.storyboard?.instantiateViewController(withIdentifier: "Success") as! SignedIn
+                loggedInUserVC.userType = "old"
+                self.navigationController?.pushViewController(loggedInUserVC, animated: true)
                 
             })
         }
     }
     
     @IBAction func continueAsGuest(_ sender: Any) {
-        let loginedInGuestVC = storyboard?.instantiateViewController(withIdentifier: "Success") as! Signed_In
-        loginedInGuestVC.Label = "This is a guest"
+        let loginedInGuestVC = storyboard?.instantiateViewController(withIdentifier: "Success") as! SignedIn
+        loginedInGuestVC.userType = "guest"
         self.navigationController?.pushViewController(loginedInGuestVC, animated: true)
         
     }

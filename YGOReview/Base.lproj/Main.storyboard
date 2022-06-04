@@ -118,37 +118,29 @@
         <!--Signed In-->
         <scene sceneID="cdd-W1-toO">
             <objects>
-                <viewController storyboardIdentifier="Success" id="6b4-RR-Z8w" customClass="Signed_In" customModule="YGOReview" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Success" id="6b4-RR-Z8w" customClass="SignedIn" customModule="YGOReview" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eBT-yc-fDC">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1g3-Gn-Zhx">
-                                <rect key="frame" x="184.66666666666666" y="454" width="59" height="18"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Replace " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2FD-89-EZ1">
-                                        <rect key="frame" x="0.0" y="0.0" width="59" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HV6-UH-pKR">
+                                <rect key="frame" x="0.0" y="44" width="428" height="848"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aF0-cT-yih"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="1g3-Gn-Zhx" firstAttribute="centerY" secondItem="eBT-yc-fDC" secondAttribute="centerY" id="KQ7-mj-IFh"/>
-                            <constraint firstItem="1g3-Gn-Zhx" firstAttribute="centerX" secondItem="eBT-yc-fDC" secondAttribute="centerX" id="cPy-xu-l1N"/>
+                            <constraint firstItem="HV6-UH-pKR" firstAttribute="leading" secondItem="aF0-cT-yih" secondAttribute="leading" id="LJL-ht-y20"/>
+                            <constraint firstItem="aF0-cT-yih" firstAttribute="trailing" secondItem="HV6-UH-pKR" secondAttribute="trailing" id="XIU-tD-Hc7"/>
+                            <constraint firstItem="aF0-cT-yih" firstAttribute="bottom" secondItem="HV6-UH-pKR" secondAttribute="bottom" id="fTt-bh-vCi"/>
+                            <constraint firstItem="HV6-UH-pKR" firstAttribute="top" secondItem="aF0-cT-yih" secondAttribute="top" id="kz3-Vg-j47"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="Labels" destination="2FD-89-EZ1" id="13F-yU-WjV"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AQU-c0-mR1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="800.00000000000011" y="50.892857142857139"/>
+            <point key="canvasLocation" x="799.06542056074761" y="50.53995680345573"/>
         </scene>
     </scenes>
     <resources>
