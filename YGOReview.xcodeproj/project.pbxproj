@@ -16,6 +16,9 @@
 		C440CAD128403DCF00577720 /* YGOReviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CAD028403DCF00577720 /* YGOReviewTests.swift */; };
 		C440CADB28403DCF00577720 /* YGOReviewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CADA28403DCF00577720 /* YGOReviewUITests.swift */; };
 		C440CADD28403DCF00577720 /* YGOReviewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CADC28403DCF00577720 /* YGOReviewUITestsLaunchTests.swift */; };
+		C4824F80284BEDE100481E46 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4824F7F284BEDE000481E46 /* Review.swift */; };
+		C4824F82284BEE0F00481E46 /* CardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4824F81284BEE0F00481E46 /* CardVC.swift */; };
+		C4824F84284BEED100481E46 /* ReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4824F83284BEED100481E46 /* ReviewVC.swift */; };
 		DB13008928442F1C008358D8 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DB13008828442F1C008358D8 /* FirebaseAnalytics */; };
 		DB13008B28442F1C008358D8 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = DB13008A28442F1C008358D8 /* FirebaseAnalyticsOnDeviceConversion */; };
 		DB13008D28442F1C008358D8 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DB13008C28442F1C008358D8 /* FirebaseAnalyticsSwift */; };
@@ -63,6 +66,9 @@
 		C440CAD628403DCF00577720 /* YGOReviewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YGOReviewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C440CADA28403DCF00577720 /* YGOReviewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YGOReviewUITests.swift; sourceTree = "<group>"; };
 		C440CADC28403DCF00577720 /* YGOReviewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YGOReviewUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C4824F7F284BEDE000481E46 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		C4824F81284BEE0F00481E46 /* CardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardVC.swift; sourceTree = "<group>"; };
+		C4824F83284BEED100481E46 /* ReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewVC.swift; sourceTree = "<group>"; };
 		DB13009E284430C5008358D8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "YGOReviewUITests/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		DB2153C5284455C10008AD5B /* SignedInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInVC.swift; sourceTree = "<group>"; };
 		DBDBB1AE2847318300B03083 /* DataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
@@ -129,10 +135,13 @@
 			children = (
 				C440CAB928403DCB00577720 /* AppDelegate.swift */,
 				C440CABB28403DCB00577720 /* SceneDelegate.swift */,
-				C440CABD28403DCB00577720 /* ViewController.swift */,
 				C440CABF28403DCB00577720 /* Main.storyboard */,
+				C440CABD28403DCB00577720 /* ViewController.swift */,
 				DB2153C5284455C10008AD5B /* SignedInVC.swift */,
+				C4824F81284BEE0F00481E46 /* CardVC.swift */,
+				C4824F83284BEED100481E46 /* ReviewVC.swift */,
 				DBDBB1AE2847318300B03083 /* DataRepository.swift */,
+				C4824F7F284BEDE000481E46 /* Review.swift */,
 				C440CAC228403DCF00577720 /* Assets.xcassets */,
 				C440CAC428403DCF00577720 /* LaunchScreen.storyboard */,
 				DB13009E284430C5008358D8 /* GoogleService-Info.plist */,
@@ -310,7 +319,10 @@
 				C440CABE28403DCB00577720 /* ViewController.swift in Sources */,
 				C440CABA28403DCB00577720 /* AppDelegate.swift in Sources */,
 				C440CABC28403DCB00577720 /* SceneDelegate.swift in Sources */,
+				C4824F84284BEED100481E46 /* ReviewVC.swift in Sources */,
+				C4824F82284BEE0F00481E46 /* CardVC.swift in Sources */,
 				DBDBB1AF2847318300B03083 /* DataRepository.swift in Sources */,
+				C4824F80284BEDE100481E46 /* Review.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

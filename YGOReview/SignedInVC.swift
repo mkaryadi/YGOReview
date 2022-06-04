@@ -10,6 +10,10 @@ import UIKit
 
 class TableViewDelegateAndDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
+    weak var vc : UIViewController?
+    weak var table : UITableView?
+    
+    // TODO: Initilize this with the names of cards from an API call
     var data = ["H - Heated Heart", "O - Oversoul", "W - Wing Catapault"]
     // Return the number of rows for the table.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -26,6 +30,14 @@ class TableViewDelegateAndDataSource: NSObject, UITableViewDataSource, UITableVi
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cardVC = vc?.storyboard?.instantiateViewController(withIdentifier: "detail") as! CardVC
+        cardVC.card = data[indexPath.row]
+        vc?.navigationController?.pushViewController(cardVC, animated: true)
+        self.table!.deselectRow(at: indexPath, animated: true)
+        
+    }
 }
 
 
@@ -39,6 +51,8 @@ class SignedInVC: UIViewController {
     override func viewDidLoad() {
         print(userType)
         super.viewDidLoad()
+        dataSourceAndDelegate.vc = self
+        dataSourceAndDelegate.table = table
         table.delegate = dataSourceAndDelegate
         table.dataSource = dataSourceAndDelegate
     }
