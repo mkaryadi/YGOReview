@@ -126,6 +126,16 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HV6-UH-pKR">
                                 <rect key="frame" x="0.0" y="44" width="428" height="848"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="QFa-Lw-d3Y">
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QFa-Lw-d3Y" id="r9M-0Z-hdb">
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aF0-cT-yih"/>
@@ -137,6 +147,9 @@
                             <constraint firstItem="HV6-UH-pKR" firstAttribute="top" secondItem="aF0-cT-yih" secondAttribute="top" id="kz3-Vg-j47"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="table" destination="HV6-UH-pKR" id="nPG-CF-m0h"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AQU-c0-mR1" sceneMemberID="firstResponder"/>
             </objects>
