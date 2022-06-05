@@ -42,17 +42,10 @@ class ViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
         
     }
-    
-    @IBAction func enterEmail(_ sender: Any) {
-        email = emailField.text!
-    }
-
-    @IBAction func enterPassword(_ sender: Any) {
-        print("ALeterrr PASSWorD SUBMITTeD")
-        password = passwordField.text!
-    }
 
     @IBAction func signUp(_ sender: Any) {
+        email = emailField.text!
+        password = passwordField.text!
         if password.isEmpty || email.isEmpty ||
             email.count < 6 || password.count < 6
         {
@@ -87,6 +80,8 @@ class ViewController: UIViewController {
     }
 
     @IBAction func signIn(_ sender: Any) {
+        email = emailField.text!
+        password = passwordField.text!
         if password.isEmpty && email.isEmpty ||
             email.count < 6 && password.count < 6
         {
