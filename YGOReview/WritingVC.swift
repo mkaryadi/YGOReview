@@ -7,15 +7,33 @@
 
 import UIKit
 
-class WritingVC: UIViewController {
-
+class WritingVC: UIViewController, UITextViewDelegate {
+    @IBOutlet weak var reviewTextView: UITextView!
+    @IBOutlet weak var starRating: UITextField!
+    
+    @IBAction func submitReview(_ sender: Any) {
+        // TODO: Validate and submit the review
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        reviewTextView.delegate = self
+        reviewTextView.textColor = .lightGray
         // Do any additional setup after loading the view.
     }
     
-
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if (textView.textColor == .lightGray) {
+            textView.text = ""
+            textView.textColor = .black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if (textView.text.isEmpty) {
+            textView.text = "Write your review here..."
+            textView.textColor = .lightGray
+        }
+    }
     /*
     // MARK: - Navigation
 

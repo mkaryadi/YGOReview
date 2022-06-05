@@ -88,7 +88,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="it4-3X-csr" firstAttribute="top" secondItem="b1V-7r-X6Q" secondAttribute="bottom" constant="75" id="07M-XD-FPk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="it4-3X-csr" secondAttribute="trailing" constant="10" id="0xA-XQ-M8j"/>
@@ -186,9 +186,9 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KEU-Ex-puN">
                                 <rect key="frame" x="10" y="416" width="408" height="405"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">Pendulum Effect: If a Pendulum Monster you control attacks, for that battle, it cannot be destroyed by battle, also you take no battle damage. At the end of the Damage Step, if a Pendulum Monster you control attacked: All monsters your opponent currently controls lose ATK equal to that attacking monster's ATK, until the end of this turn.
+                                <string key="text">Pendulum Effect: If a Pendulum Monster you control attacks, for that battle, it cannot be destroyed by battle, also you take no battle damage. At the end of the Damage Step, if a Pendulum Monster you control attacked: All monsters your opponent currently controls lose ATK equal to that attacking monster's ATK, until the end of this turn.
 Monster Effect: 1 Tuner + 1 or more non-Tuner Synchro Monsters
-For this card's Synchro Summon, you can treat 1 Pendulum Summoned Pendulum Monster you control as a Tuner. If this card is Synchro Summoned using a Pendulum Summoned Pendulum Monster Tuner: You can target 1 card in your Graveyard; add it to your hand. When this card destroys an opponent's monster by battle: You can halve your opponent's LP. If this card in the Monster Zone is destroyed by battle or card effect: You can place this card in your Pendulum Zone.</mutableString>
+For this card's Synchro Summon, you can treat 1 Pendulum Summoned Pendulum Monster you control as a Tuner. If this card is Synchro Summoned using a Pendulum Summoned Pendulum Monster Tuner: You can target 1 card in your Graveyard; add it to your hand. When this card destroys an opponent's monster by battle: You can halve your opponent's LP. If this card in the Monster Zone is destroyed by battle or card effect: You can place this card in your Pendulum Zone.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -255,13 +255,72 @@ For this card's Synchro Summon, you can treat 1 Pendulum Summoned Pendulum Monst
                     <view key="view" contentMode="scaleToFill" id="WIA-53-zzX">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lT-D1-izJ">
+                                <rect key="frame" x="10" y="145" width="408" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write your review here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AKU-yk-po1">
+                                <rect key="frame" x="10" y="186" width="408" height="635"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stars (1-5):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHn-8v-trh">
+                                <rect key="frame" x="10" y="64" width="408" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1-5" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xRj-Wp-G17">
+                                <rect key="frame" x="10" y="95" width="50" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="4ed-Y6-wqi"/>
+                                    <constraint firstAttribute="width" constant="50" id="Utr-Oa-Fcn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcn-vQ-2D1">
+                                <rect key="frame" x="10" y="841" width="408" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Submit"/>
+                                <connections>
+                                    <action selector="submitReview:" destination="hcz-pa-pn3" eventType="touchUpInside" id="5Pk-jW-xiH"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Jw1-tm-Rui"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5lT-D1-izJ" firstAttribute="top" secondItem="xRj-Wp-G17" secondAttribute="bottom" constant="20" id="3Jh-qB-kPp"/>
+                            <constraint firstItem="Jw1-tm-Rui" firstAttribute="bottom" secondItem="mcn-vQ-2D1" secondAttribute="bottom" constant="20" id="3s1-9f-UwL"/>
+                            <constraint firstItem="AKU-yk-po1" firstAttribute="top" secondItem="5lT-D1-izJ" secondAttribute="bottom" constant="20" id="8q8-Fp-j7b"/>
+                            <constraint firstItem="5lT-D1-izJ" firstAttribute="leading" secondItem="Jw1-tm-Rui" secondAttribute="leading" constant="10" id="DCk-jd-kxd"/>
+                            <constraint firstItem="AKU-yk-po1" firstAttribute="leading" secondItem="Jw1-tm-Rui" secondAttribute="leading" constant="10" id="JXG-dw-bbW"/>
+                            <constraint firstItem="Jw1-tm-Rui" firstAttribute="trailing" secondItem="mcn-vQ-2D1" secondAttribute="trailing" constant="10" id="KXp-cA-4Lq"/>
+                            <constraint firstItem="Jw1-tm-Rui" firstAttribute="trailing" secondItem="AKU-yk-po1" secondAttribute="trailing" constant="10" id="ON9-fC-yTX"/>
+                            <constraint firstItem="PHn-8v-trh" firstAttribute="leading" secondItem="Jw1-tm-Rui" secondAttribute="leading" constant="10" id="Qm6-rx-Rfr"/>
+                            <constraint firstItem="Jw1-tm-Rui" firstAttribute="trailing" secondItem="PHn-8v-trh" secondAttribute="trailing" constant="10" id="Rv2-QA-ZGw"/>
+                            <constraint firstItem="xRj-Wp-G17" firstAttribute="leading" secondItem="Jw1-tm-Rui" secondAttribute="leading" constant="10" id="Xun-45-mnl"/>
+                            <constraint firstItem="Jw1-tm-Rui" firstAttribute="trailing" secondItem="5lT-D1-izJ" secondAttribute="trailing" constant="10" id="gx4-uH-5rf"/>
+                            <constraint firstItem="mcn-vQ-2D1" firstAttribute="leading" secondItem="Jw1-tm-Rui" secondAttribute="leading" constant="10" id="hZE-Oq-Lfd"/>
+                            <constraint firstItem="xRj-Wp-G17" firstAttribute="top" secondItem="PHn-8v-trh" secondAttribute="bottom" constant="10" id="o2X-3c-8Ce"/>
+                            <constraint firstItem="PHn-8v-trh" firstAttribute="top" secondItem="Jw1-tm-Rui" secondAttribute="top" constant="20" id="qLY-MA-Hog"/>
+                            <constraint firstItem="mcn-vQ-2D1" firstAttribute="top" secondItem="AKU-yk-po1" secondAttribute="bottom" constant="20" id="ymH-hF-sLY"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="reviewTextView" destination="AKU-yk-po1" id="KgU-We-0K7"/>
+                        <outlet property="starRating" destination="xRj-Wp-G17" id="zgc-mq-Hju"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WSx-CB-5lS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3189" y="51"/>
+            <point key="canvasLocation" x="3187.8504672897193" y="50.53995680345573"/>
         </scene>
     </scenes>
     <resources>
