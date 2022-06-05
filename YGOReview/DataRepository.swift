@@ -26,7 +26,7 @@ class DataRepository: NSObject {
         getJson(url!)
     }
     
-    private func getJson(_ url: URL) {
+    func getJson(_ url: URL) {
         let session = URLSession.shared.dataTask(with: url) {
             data, response, error in
             

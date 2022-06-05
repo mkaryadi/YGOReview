@@ -186,9 +186,9 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KEU-Ex-puN">
                                 <rect key="frame" x="10" y="416" width="408" height="405"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">Pendulum Effect: If a Pendulum Monster you control attacks, for that battle, it cannot be destroyed by battle, also you take no battle damage. At the end of the Damage Step, if a Pendulum Monster you control attacked: All monsters your opponent currently controls lose ATK equal to that attacking monster's ATK, until the end of this turn.
+                                <string key="text">Pendulum Effect: If a Pendulum Monster you control attacks, for that battle, it cannot be destroyed by battle, also you take no battle damage. At the end of the Damage Step, if a Pendulum Monster you control attacked: All monsters your opponent currently controls lose ATK equal to that attacking monster's ATK, until the end of this turn.
 Monster Effect: 1 Tuner + 1 or more non-Tuner Synchro Monsters
-For this card's Synchro Summon, you can treat 1 Pendulum Summoned Pendulum Monster you control as a Tuner. If this card is Synchro Summoned using a Pendulum Summoned Pendulum Monster Tuner: You can target 1 card in your Graveyard; add it to your hand. When this card destroys an opponent's monster by battle: You can halve your opponent's LP. If this card in the Monster Zone is destroyed by battle or card effect: You can place this card in your Pendulum Zone.</mutableString>
+For this card's Synchro Summon, you can treat 1 Pendulum Summoned Pendulum Monster you control as a Tuner. If this card is Synchro Summoned using a Pendulum Summoned Pendulum Monster Tuner: You can target 1 card in your Graveyard; add it to your hand. When this card destroys an opponent's monster by battle: You can halve your opponent's LP. If this card in the Monster Zone is destroyed by battle or card effect: You can place this card in your Pendulum Zone.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -215,6 +215,7 @@ For this card's Synchro Summon, you can treat 1 Pendulum Summoned Pendulum Monst
                     <connections>
                         <outlet property="cardImage" destination="Qn0-ER-09i" id="eSp-PK-xOu"/>
                         <outlet property="cardName" destination="aqN-Se-mql" id="tax-rU-68y"/>
+                        <outlet property="cardText" destination="KEU-Ex-puN" id="9IJ-8c-LBt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZh-FV-qG4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
