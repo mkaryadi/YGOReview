@@ -15,7 +15,7 @@ class TableViewDelegateAndDataSource: NSObject, UITableViewDataSource, UITableVi
     var userType : String?
     
     // TODO: Initilize this with the names of cards from an API call
-    var data = ["H - Heated Heart", "O - Oversoul", "W - Wing Catapault"]
+    var data = ["H - Heated Heart", "O - Oversoul", "W-Wing Catapult"]
     // Return the number of rows for the table.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count

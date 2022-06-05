@@ -215,6 +215,7 @@ For this card's Synchro Summon, you can treat 1 Pendulum Summoned Pendulum Monst
                     <connections>
                         <outlet property="cardImage" destination="Qn0-ER-09i" id="eSp-PK-xOu"/>
                         <outlet property="cardName" destination="aqN-Se-mql" id="tax-rU-68y"/>
+                        <outlet property="cardText" destination="KEU-Ex-puN" id="9IJ-8c-LBt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZh-FV-qG4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
