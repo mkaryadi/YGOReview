@@ -8,10 +8,11 @@
 import UIKit
 
 class ReviewVC: UIViewController {
-    
     var card = ""
     var signedIn = false
-    
+    var datarepo = DataRepository()
+    var reviewArray: [Review] = []
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,12 +20,14 @@ class ReviewVC: UIViewController {
         self.title = "Reviews for \(card)"
         let addReviewButton = UIBarButtonItem(title: "Add a Review", style: .plain, target: self, action: #selector(ReviewVC.segueToReviewWriting))
         self.navigationItem.rightBarButtonItem = addReviewButton
+        datarepo.getAllReviewsByCard(card, self)
     }
     
     @objc(segueToReviewWriting)
     func segueToReviewWriting() {
         if (signedIn) {
             let writingVC = storyboard?.instantiateViewController(withIdentifier: "writing") as! WritingVC
+            writingVC.card = card
             navigationController?.pushViewController(writingVC, animated: true)
         } else {
             let alert = UIAlertController(title: "Reigstration Required", message: "You must have an account to leave a review!", preferredStyle: .alert)

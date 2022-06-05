@@ -305,6 +305,7 @@ For this card's Synchro Summon, you can treat 1 Pendulum Summoned Pendulum Monst
                                 <buttonConfiguration key="configuration" style="filled" title="Submit"/>
                                 <connections>
                                     <action selector="submitReview:" destination="hcz-pa-pn3" eventType="touchUpInside" id="5Pk-jW-xiH"/>
+                                    <action selector="submitReviewBtn:" destination="0TP-B0-qF2" eventType="touchUpInside" id="CCf-eL-aa2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -334,6 +335,7 @@ For this card's Synchro Summon, you can treat 1 Pendulum Summoned Pendulum Monst
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WSx-CB-5lS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="0TP-B0-qF2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3187.8504672897193" y="50.53995680345573"/>
         </scene>

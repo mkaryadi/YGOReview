@@ -10,9 +10,18 @@ import UIKit
 class WritingVC: UIViewController, UITextViewDelegate {
     @IBOutlet weak var reviewTextView: UITextView!
     @IBOutlet weak var starRating: UITextField!
-    
+    var card = "Nirvana High Paladin"
+    let datarepo = DataRepository()
     @IBAction func submitReview(_ sender: Any) {
         // TODO: Validate and submit the review
+        if(reviewTextView.textColor == .lightGray){
+            let alert = UIAlertController(title: "You haven't typed anything", message: "Write up a great review before you try to post one!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true)
+        }
+        else{
+            datarepo.postReview("ramirost", card, numStars: Int(starRating.text!)!, description: reviewTextView.text!)
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()

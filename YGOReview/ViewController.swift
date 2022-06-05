@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         
         let dataRepo = DataRepository()
         dataRepo.getAllReviewsByUser("ramirost")
-        dataRepo.getAllReviewsByCard("Tornado Dragon")
+        //dataRepo.getAllReviewsByCard("Tornado Dragon")
     }
     
     override func viewWillAppear(_ animated: Bool) {
