@@ -73,7 +73,7 @@ class ViewController: UIViewController {
                 
                 let newUserVC = self.storyboard?.instantiateViewController(withIdentifier: "Success") as! SignedInVC
                 newUserVC.userType = "new"
-                newUserVC.email = email
+                newUserVC.email = self.email
                 self.navigationController?.pushViewController(newUserVC, animated: true)
                 self.navigationController?.isNavigationBarHidden = false
             })
