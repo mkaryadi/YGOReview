@@ -10,10 +10,10 @@ import UIKit
 
 class TableViewDelegateAndDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    weak var vc : UIViewController?
+    weak var vc : SignedInVC?
     weak var table : UITableView?
     var userType : String?
-    
+
     // TODO: Initilize this with the names of cards from an API call
     var data = ["H - Heated Heart", "O - Oversoul", "W-Wing Catapult", "Nirvana High Paladin"]
     // Return the number of rows for the table.
@@ -36,6 +36,7 @@ class TableViewDelegateAndDataSource: NSObject, UITableViewDataSource, UITableVi
         let cardVC = vc?.storyboard?.instantiateViewController(withIdentifier: "detail") as! CardVC
         cardVC.card = data[indexPath.row]
         cardVC.signedIn = (userType == "new" || userType == "old")
+        cardVC.email = vc!.email
         vc?.navigationController?.pushViewController(cardVC, animated: true)
         self.table!.deselectRow(at: indexPath, animated: true)
         
@@ -48,6 +49,7 @@ class SignedInVC: UIViewController {
     
     @IBOutlet weak var table: UITableView!
     
+    var email = ""
     public var userType = ""
     var dataSourceAndDelegate = TableViewDelegateAndDataSource()
     

@@ -32,6 +32,7 @@ class ReviewVC: UIViewController {
     var signedIn = false
     var datarepo = DataRepository()
     var reviewArray: [Review] = []
+    var email = ""
 
     @IBOutlet weak var noReviewsLabel: UITableView!
     @IBOutlet weak var reviewTable: UITableView!

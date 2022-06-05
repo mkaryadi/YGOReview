@@ -10,8 +10,11 @@ import UIKit
 class WritingVC: UIViewController, UITextViewDelegate {
     @IBOutlet var reviewTextView: UITextView!
     @IBOutlet var starRating: UITextField!
+    
     var card = "Nirvana High Paladin"
     let datarepo = DataRepository()
+    var email = ""
+    
     @IBAction func submitReview(_ sender: Any) {
         // TODO: Validate and submit the review
         let numStars = Int(starRating.text!) ?? 0
@@ -24,7 +27,7 @@ class WritingVC: UIViewController, UITextViewDelegate {
             alert.addAction(UIAlertAction(title: "OK", style: .default))
             present(alert, animated: true)
         } else {
-            datarepo.postReview("ramirost", card, numStars: numStars, description: reviewTextView.text!)
+            datarepo.postReview(email, card, numStars: numStars, description: reviewTextView.text!)
         }
     }
 
