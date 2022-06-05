@@ -40,6 +40,7 @@ class ViewController: UIViewController {
         emailField.text = ""
         passwordField.text = ""
         navigationController?.isNavigationBarHidden = true
+        
     }
     
     @IBAction func enterEmail(_ sender: Any) {
