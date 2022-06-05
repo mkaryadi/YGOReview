@@ -39,6 +39,7 @@ class ViewController: UIViewController {
         // Clear the email and password fields after signing out
         emailField.text = ""
         passwordField.text = ""
+        navigationController?.isNavigationBarHidden = true
     }
     
     @IBAction func enterEmail(_ sender: Any) {
@@ -79,7 +80,7 @@ class ViewController: UIViewController {
                 let newUserVC = self.storyboard?.instantiateViewController(withIdentifier: "Success") as! SignedInVC
                 newUserVC.userType = "new"
                 self.navigationController?.pushViewController(newUserVC, animated: true)
-                
+                self.navigationController?.isNavigationBarHidden = false
             })
         }
     }
@@ -111,7 +112,7 @@ class ViewController: UIViewController {
                 let loggedInUserVC = self.storyboard?.instantiateViewController(withIdentifier: "Success") as! SignedInVC
                 loggedInUserVC.userType = "old"
                 self.navigationController?.pushViewController(loggedInUserVC, animated: true)
-                
+                self.navigationController?.isNavigationBarHidden = false
             })
         }
     }
@@ -120,7 +121,7 @@ class ViewController: UIViewController {
         let loginedInGuestVC = storyboard?.instantiateViewController(withIdentifier: "Success") as! SignedInVC
         loginedInGuestVC.userType = "guest"
         self.navigationController?.pushViewController(loginedInGuestVC, animated: true)
-        
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     func displayAlert(_ title: String, _ message: String, _ LogError: String) {
