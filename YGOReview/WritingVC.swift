@@ -28,6 +28,7 @@ class WritingVC: UIViewController, UITextViewDelegate {
         } else {
             print(email)
             datarepo.postReview(email, card, numStars: numStars, description: reviewTextView.text!)
+            navigationController?.popViewController(animated: true)
         }
     }
 

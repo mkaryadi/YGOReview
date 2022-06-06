@@ -25,7 +25,9 @@ class ReviewTableDelegateAndDataSource: NSObject, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: Go to the VC that will allow for viewing the full review and commenting
+        let commentVC = vc?.storyboard?.instantiateViewController(withIdentifier: "comment") as! CommentVC
+        commentVC.review = vc!.reviewArray[indexPath.row]
+        vc?.navigationController?.pushViewController(commentVC, animated: true)
     }
     
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C43317F8284DAEF20032D6B0 /* CommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43317F7284DAEF20032D6B0 /* CommentVC.swift */; };
 		C440CABA28403DCB00577720 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CAB928403DCB00577720 /* AppDelegate.swift */; };
 		C440CABC28403DCB00577720 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CABB28403DCB00577720 /* SceneDelegate.swift */; };
 		C440CABE28403DCB00577720 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CABD28403DCB00577720 /* ViewController.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C43317F7284DAEF20032D6B0 /* CommentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentVC.swift; sourceTree = "<group>"; };
 		C440CAB628403DCB00577720 /* YGOReview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YGOReview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C440CAB928403DCB00577720 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C440CABB28403DCB00577720 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				C4824F81284BEE0F00481E46 /* CardVC.swift */,
 				C4824F83284BEED100481E46 /* ReviewVC.swift */,
 				C4824F85284C26C900481E46 /* WritingVC.swift */,
+				C43317F7284DAEF20032D6B0 /* CommentVC.swift */,
 				DBDBB1AE2847318300B03083 /* DataRepository.swift */,
 				C4824F7F284BEDE000481E46 /* Review.swift */,
 				C440CAC228403DCF00577720 /* Assets.xcassets */,
@@ -324,6 +327,7 @@
 				C440CABC28403DCB00577720 /* SceneDelegate.swift in Sources */,
 				C4824F84284BEED100481E46 /* ReviewVC.swift in Sources */,
 				C4824F82284BEE0F00481E46 /* CardVC.swift in Sources */,
+				C43317F8284DAEF20032D6B0 /* CommentVC.swift in Sources */,
 				C4824F86284C26C900481E46 /* WritingVC.swift in Sources */,
 				DBDBB1AF2847318300B03083 /* DataRepository.swift in Sources */,
 				C4824F80284BEDE100481E46 /* Review.swift in Sources */,

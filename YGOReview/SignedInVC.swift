@@ -51,15 +51,15 @@ class CardTableDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableVi
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-            vc!.searchBar.showsCancelButton = true
+            searchBar.showsCancelButton = true
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         filteredData = data
         table!.reloadData()
-        vc!.searchBar.showsCancelButton = false
-        vc!.searchBar.text = ""
-        vc!.searchBar.resignFirstResponder()
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
     }
 }
 
