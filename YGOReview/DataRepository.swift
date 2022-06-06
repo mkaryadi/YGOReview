@@ -14,7 +14,7 @@ class DataRepository: NSObject {
     private let ALL_REVIEWS_BY_CARD_URL = "https://desolate-ridge-13493.herokuapp.com/allReviewsByCard?card="
     private let POST_REVIEW_URL = "https://desolate-ridge-13493.herokuapp.com/uploadReview?card="
     private let POST_COMMENT_URL = "https://desolate-ridge-13493.herokuapp.com/makeComment?reviewCard="
-    
+    private let ALL_COMMENTS_FOR_REVIEW_URL = "https://desolate-ridge-13493.herokuapp.com/allComentsForReview?card="
     func getAllReviewsByUser(_ user: String) {
         let encodedUser = user.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let url = URL(string: "\(ALL_REVIEWS_BY_USER_URL)\(encodedUser)")
@@ -43,6 +43,7 @@ class DataRepository: NSObject {
                 if let reviewsJSONData = json as? [[String: Any]] {
                     for reviewJSON in reviewsJSONData {
                         let newReview = Review(reviewJSON["author"] as! String, reviewJSON["card"] as! String, reviewJSON["description"] as! String, reviewJSON["numStars"] as! Int, [])
+                        newReview.downloadComments()
                         newReviewArr.append(newReview)
                     }
                 }
@@ -234,4 +235,49 @@ class DataRepository: NSObject {
         }
         session.resume()
     }
+    
+    func getAllCommentsForReview(_ card: String, _ author: String , _ reviewRef: Review!) {
+        //https://desolate-ridge-13493.herokuapp.com/allComentsForReview?card=Tornado%20Dragon&author=ramirost
+        let encodedCard = card.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let encodedAuthor = author.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let urlString = ALL_COMMENTS_FOR_REVIEW_URL + encodedCard + "&author=" + encodedAuthor
+        let url = URL(string: urlString)!
+        let session = URLSession.shared.dataTask(with: url) {
+            data, response, error in
+            
+            if response != nil {
+                if (response! as! HTTPURLResponse).statusCode != 200 {
+                    print("Something went wrong! \(error)")
+                }
+            }
+            
+            let httpResponse = response! as! HTTPURLResponse
+            print(data)
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!)
+                var newCommentArr: [String] = []
+                print(json)
+                if let commentJSONData = json as? [[String: Any]] {
+                    for commentJSON in commentJSONData {
+                        let newComment = (commentJSON["reviewAuthor"] as! String) + " says: " + (commentJSON["comment"] as! String)
+                        newCommentArr.append(newComment)
+                    }
+                }
+                DispatchQueue.main.async {
+                    print("Found these comments")
+                    for commentString in newCommentArr {
+                        print(commentString)
+                    }
+                    reviewRef.comments = newCommentArr
+                }
+            }
+            catch {
+                print("Something went boom")
+            }
+        }
+        session.resume()
+    }
+    
+
 }
