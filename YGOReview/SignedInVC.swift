@@ -14,7 +14,7 @@ class CardTableDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableVi
     var userType: String?
     var filteredData: [String] = []
     
-    var data = ["H - Heated Heart", "O - Oversoul", "W-Wing Catapult"]
+    var data: [String] = []
     // Return the number of rows for the table.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredData.count
@@ -180,7 +180,6 @@ class SignedInVC: UIViewController {
                         }
                         self.dataSourceAndDelegate.data = cardNameList
                         dataSourceAndDelegate.filteredData = cardNameList
-                        self.alphaList = cardNameList
                         self.table.delegate = dataSourceAndDelegate
                         self.table.dataSource = dataSourceAndDelegate
                         self.table.reloadData()

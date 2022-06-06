@@ -61,6 +61,8 @@ class CommentVC: UIViewController {
             alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { _ in
                 if !(alert.textFields?.first?.text?.isEmpty ?? false) {
                     self.dataRepo.postComment(self.review?.author, self.review?.card, self.email, alert.textFields?.first?.text)
+                    self.delegateAndDataSource.data.append("\(self.email) says: \((alert.textFields?.first?.text)!)")
+                    self.commentTableView.reloadData()
                 } else {
                     print("Empty comment, dismissing...")
                     alert.dismiss(animated: true)
