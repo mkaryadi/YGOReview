@@ -121,7 +121,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HV6-UH-pKR">
-                                <rect key="frame" x="0.0" y="44" width="428" height="848"/>
+                                <rect key="frame" x="0.0" y="89" width="428" height="803"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="QFa-Lw-d3Y">
@@ -134,14 +134,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="9Dm-XM-cyK">
+                                <rect key="frame" x="0.0" y="44" width="428" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="0Ph-Sl-JUv"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aF0-cT-yih"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="HV6-UH-pKR" firstAttribute="leading" secondItem="aF0-cT-yih" secondAttribute="leading" id="LJL-ht-y20"/>
                             <constraint firstItem="aF0-cT-yih" firstAttribute="trailing" secondItem="HV6-UH-pKR" secondAttribute="trailing" id="XIU-tD-Hc7"/>
+                            <constraint firstItem="HV6-UH-pKR" firstAttribute="top" secondItem="9Dm-XM-cyK" secondAttribute="bottom" id="ZIN-Ga-Ii6"/>
                             <constraint firstItem="aF0-cT-yih" firstAttribute="bottom" secondItem="HV6-UH-pKR" secondAttribute="bottom" id="fTt-bh-vCi"/>
-                            <constraint firstItem="HV6-UH-pKR" firstAttribute="top" secondItem="aF0-cT-yih" secondAttribute="top" id="kz3-Vg-j47"/>
+                            <constraint firstItem="9Dm-XM-cyK" firstAttribute="top" secondItem="aF0-cT-yih" secondAttribute="top" id="fnY-pc-dBZ"/>
+                            <constraint firstItem="9Dm-XM-cyK" firstAttribute="trailing" secondItem="aF0-cT-yih" secondAttribute="trailing" id="wEw-gq-5CO"/>
+                            <constraint firstItem="9Dm-XM-cyK" firstAttribute="leading" secondItem="aF0-cT-yih" secondAttribute="leading" id="wa5-pl-pkr"/>
                         </constraints>
                     </view>
                     <connections>
@@ -185,12 +195,9 @@
                                     <outletCollection property="gestureRecognizers" destination="dWr-8P-zlj" appends="YES" id="gwK-k5-NbF"/>
                                 </connections>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KEU-Ex-puN">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Loading..." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KEU-Ex-puN">
                                 <rect key="frame" x="10" y="360" width="408" height="461"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Pendulum Effect: If a Pendulum Monster you control attacks, for that battle, it cannot be destroyed by battle, also you take no battle damage. At the end of the Damage Step, if a Pendulum Monster you control attacked: All monsters your opponent currently controls lose ATK equal to that attacking monster's ATK, until the end of this turn.
-Monster Effect: 1 Tuner + 1 or more non-Tuner Synchro Monsters
-For this card's Synchro Summon, you can treat 1 Pendulum Summoned Pendulum Monster you control as a Tuner. If this card is Synchro Summoned using a Pendulum Summoned Pendulum Monster Tuner: You can target 1 card in your Graveyard; add it to your hand. When this card destroys an opponent's monster by battle: You can halve your opponent's LP. If this card in the Monster Zone is destroyed by battle or card effect: You can place this card in your Pendulum Zone.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -367,7 +374,44 @@ For this card's Synchro Summon, you can treat 1 Pendulum Summoned Pendulum Monst
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WSx-CB-5lS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="0TP-B0-qF2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3187.8504672897193" y="50.53995680345573"/>
+            <point key="canvasLocation" x="3198" y="-268"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="qSJ-xz-Ejc">
+            <objects>
+                <viewController id="3sV-Pa-MT6" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="i94-9h-Lgc">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Stars:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jP9-wk-OaB">
+                                <rect key="frame" x="10" y="64" width="408" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ze1-dc-NlQ">
+                                <rect key="frame" x="10" y="102" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xLC-FJ-oKx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jP9-wk-OaB" firstAttribute="top" secondItem="xLC-FJ-oKx" secondAttribute="top" constant="20" id="AiA-NP-eSW"/>
+                            <constraint firstItem="xLC-FJ-oKx" firstAttribute="trailing" secondItem="jP9-wk-OaB" secondAttribute="trailing" constant="10" id="Swn-do-JXQ"/>
+                            <constraint firstItem="jP9-wk-OaB" firstAttribute="leading" secondItem="xLC-FJ-oKx" secondAttribute="leading" constant="10" id="gK1-O3-sXW"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zAr-Nc-hMd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3197.663551401869" y="411.44708423326136"/>
         </scene>
     </scenes>
     <resources>

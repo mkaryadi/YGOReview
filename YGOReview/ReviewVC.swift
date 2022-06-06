@@ -16,7 +16,11 @@ class ReviewTableDelegateAndDataSource: NSObject, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel!.text = vc!.reviewArray[indexPath.row].author
-        cell.detailTextLabel!.text = "\(vc!.reviewArray[indexPath.row].stars) stars"
+        if vc!.reviewArray[indexPath.row].stars == 1 {
+            cell.detailTextLabel!.text = "1 star"
+        } else {
+            cell.detailTextLabel!.text = "\(vc!.reviewArray[indexPath.row].stars) stars"
+        }
         return cell
     }
     
@@ -62,6 +66,7 @@ class ReviewVC: UIViewController {
         if (signedIn) {
             let writingVC = storyboard?.instantiateViewController(withIdentifier: "writing") as! WritingVC
             writingVC.card = card
+            writingVC.email = email
             navigationController?.pushViewController(writingVC, animated: true)
         } else {
             let alert = UIAlertController(title: "Reigstration Required", message: "You must have an account to leave a review!", preferredStyle: .alert)

@@ -108,6 +108,7 @@ class ViewController: UIViewController {
                 
                 let loggedInUserVC = self.storyboard?.instantiateViewController(withIdentifier: "Success") as! SignedInVC
                 loggedInUserVC.userType = "old"
+                loggedInUserVC.email = self.email
                 self.navigationController?.pushViewController(loggedInUserVC, animated: true)
                 self.navigationController?.isNavigationBarHidden = false
             })

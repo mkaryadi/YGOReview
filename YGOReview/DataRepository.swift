@@ -121,6 +121,7 @@ class DataRepository: NSObject {
     
     func postReview(_ user: String!, _ cardName: String!, numStars: Int, description: String!) {
         var urlString = POST_REVIEW_URL + cardName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)! + "&author=" + user.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)! + "&numStars=" + String(numStars) + "&description=" + description.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        print(urlString)
         let url = URL(string: urlString)!
         let session = URLSession.shared.dataTask(with: url) {
             data, response, error in

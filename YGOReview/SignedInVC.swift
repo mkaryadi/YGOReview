@@ -8,11 +8,12 @@
 import Foundation
 import UIKit
 
-class TableViewDelegateAndDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
+class CardTableDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate{
     
     weak var vc : SignedInVC?
     weak var table : UITableView?
     var userType : String?
+    
 
     // TODO: Initilize this with the names of cards from an API call
     var data = ["H - Heated Heart", "O - Oversoul", "W-Wing Catapult", "Nirvana High Paladin"]
@@ -51,7 +52,7 @@ class SignedInVC: UIViewController {
     
     var email = ""
     public var userType = ""
-    var dataSourceAndDelegate = TableViewDelegateAndDataSource()
+    var dataSourceAndDelegate = CardTableDataSourceAndDelegate()
     
     override func viewDidLoad() {
         
@@ -63,7 +64,6 @@ class SignedInVC: UIViewController {
         
         table.delegate = dataSourceAndDelegate
         table.dataSource = dataSourceAndDelegate
-        
         self.title = "Cards"
         navigationController?.navigationBar.backItem?.title = "Sign Out"
     }

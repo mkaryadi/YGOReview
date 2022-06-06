@@ -16,7 +16,6 @@ class WritingVC: UIViewController, UITextViewDelegate {
     var email = ""
     
     @IBAction func submitReview(_ sender: Any) {
-        // TODO: Validate and submit the review
         let numStars = Int(starRating.text!) ?? 0
         if reviewTextView.textColor == .lightGray {
             let alert = UIAlertController(title: "You haven't typed anything", message: "Write up a great review before you try to post one!", preferredStyle: .alert)
@@ -27,6 +26,7 @@ class WritingVC: UIViewController, UITextViewDelegate {
             alert.addAction(UIAlertAction(title: "OK", style: .default))
             present(alert, animated: true)
         } else {
+            print(email)
             datarepo.postReview(email, card, numStars: numStars, description: reviewTextView.text!)
         }
     }
