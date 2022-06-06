@@ -41,6 +41,7 @@ class TableViewDelegateAndDataSource: NSObject, UITableViewDataSource, UITableVi
         self.table!.deselectRow(at: indexPath, animated: true)
         
     }
+ 
     
 }
 
@@ -61,11 +62,53 @@ class SignedInVC: UIViewController {
         dataSourceAndDelegate.userType = userType
         dataSourceAndDelegate.table = table
         
-        table.delegate = dataSourceAndDelegate
-        table.dataSource = dataSourceAndDelegate
+        let DIFOURL = URL(string: "https://db.ygoprodeck.com/api/v7/cardinfo.php?cardset=dimension%20force")!
+        getJsonCardData(DIFOURL)
         
         self.title = "Cards"
         navigationController?.navigationBar.backItem?.title = "Sign Out"
     }
     
+    func getJsonCardData(_ url: URL) {
+        let session = URLSession.shared.dataTask(with: url) {
+            data, response, error in
+            
+            if response != nil {
+                if (response! as! HTTPURLResponse).statusCode != 200 {
+                    print("Something went wrong! \(error)")
+                }
+            }
+            
+            let httpResponse = response! as! HTTPURLResponse
+        
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!)
+                print(json)
+                if let dict = json as? [String: Any] {
+                    print(dict)
+                    let actualObject = dict["data"] as? [[String: Any]]
+                    var cardNameList: [String] = []
+                    for info in actualObject! {
+                        let cardName = (info["name"] as! String)
+                        cardNameList.append(cardName)
+                    }
+                    DispatchQueue.main.async { [self] in
+                        for card in cardNameList {
+                            print(card)
+                        }
+                        self.dataSourceAndDelegate.data = cardNameList
+                        self.table.delegate = dataSourceAndDelegate
+                        self.table.dataSource = dataSourceAndDelegate
+                    }
+                    
+                }
+            }
+            catch {
+                print("Something went boom")
+            }
+        }
+        session.resume()
+    }
+    
+
 }
