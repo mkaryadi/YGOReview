@@ -27,6 +27,8 @@ class ReviewTableDelegateAndDataSource: NSObject, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let commentVC = vc?.storyboard?.instantiateViewController(withIdentifier: "comment") as! CommentVC
         commentVC.review = vc!.reviewArray[indexPath.row]
+        commentVC.signedIn = vc!.signedIn
+        commentVC.email = vc!.email
         vc?.navigationController?.pushViewController(commentVC, animated: true)
     }
     

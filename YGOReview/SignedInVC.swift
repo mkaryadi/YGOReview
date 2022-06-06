@@ -14,7 +14,6 @@ class CardTableDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableVi
     var userType: String?
     var filteredData: [String] = []
     
-    // TODO: Initilize this with the names of cards from an API call
     var data = ["H - Heated Heart", "O - Oversoul", "W-Wing Catapult"]
     // Return the number of rows for the table.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -70,7 +69,9 @@ class SignedInVC: UIViewController {
     var email = ""
     public var userType = ""
     var dataSourceAndDelegate = CardTableDataSourceAndDelegate()
-    
+    var sortByButton : UIBarButtonItem?
+    var alphaList : [String]?
+    var sortType = false
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -81,10 +82,27 @@ class SignedInVC: UIViewController {
         
         let DIFOURL = URL(string: "https://db.ygoprodeck.com/api/v7/cardinfo.php?cardset=dimension%20force")!
         getJsonCardData(DIFOURL)
-        // getListOfCardsThruSearch("wizard")
         title = "Cards"
         navigationController?.navigationBar.backItem?.title = "Sign Out"
+        sortByButton = UIBarButtonItem(title: "Sort By Rating", style: .plain, target: self, action: #selector(handleTap(sender:)))
+        navigationItem.rightBarButtonItem = sortByButton
     }
+    
+    @objc func handleTap(sender: UIBarButtonItem) {
+        if sortType {
+            sender.title = "Sort by Rating"
+            self.dataSourceAndDelegate.filteredData = self.alphaList ?? []
+            self.table.reloadData()
+            sortType = false
+        } else {
+            sender.title = "Sort Alphabetically"
+            // TODO: Sort by rating
+            self.dataSourceAndDelegate.filteredData = []
+            self.table.reloadData()
+            sortType = true
+        }
+    }
+    
     
     func getListOfCardsThruSearch(_ searchString: String!) {
         let searchURLBaseCall = "https://db.ygoprodeck.com/api/v7/cardinfo.php?fname="
@@ -94,6 +112,7 @@ class SignedInVC: UIViewController {
     }
     
     func getJsonCardData(_ url: URL) {
+        var cardNameList: [String] = []
         let session = URLSession.shared.dataTask(with: url) {
             data, response, error in
             
@@ -104,14 +123,13 @@ class SignedInVC: UIViewController {
             }
             
             let httpResponse = response! as! HTTPURLResponse
-        
+            
             do {
                 let json = try JSONSerialization.jsonObject(with: data!)
                 print(json)
                 if let dict = json as? [String: Any] {
                     print(dict)
                     let actualObject = dict["data"] as? [[String: Any]]
-                    var cardNameList: [String] = []
                     for info in actualObject! {
                         let cardName = (info["name"] as! String)
                         cardNameList.append(cardName)
@@ -122,6 +140,7 @@ class SignedInVC: UIViewController {
                         }
                         self.dataSourceAndDelegate.data = cardNameList
                         dataSourceAndDelegate.filteredData = cardNameList
+                        self.alphaList = cardNameList
                         self.table.delegate = dataSourceAndDelegate
                         self.table.dataSource = dataSourceAndDelegate
                         self.table.reloadData()
