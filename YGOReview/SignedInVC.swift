@@ -97,7 +97,7 @@ class SignedInVC: UIViewController {
         } else {
             sender.title = "Sort Alphabetically"
             // TODO: Sort by rating
-            self.dataSourceAndDelegate.filteredData = []
+            self.dataSourceAndDelegate.filteredData = [] // Should set it equal to a sorted array here
             self.table.reloadData()
             sortType = true
         }
