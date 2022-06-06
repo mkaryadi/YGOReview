@@ -155,6 +155,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="searchBar" destination="9Dm-XM-cyK" id="2Zs-vY-4ta"/>
                         <outlet property="table" destination="HV6-UH-pKR" id="C7K-sX-f2Q"/>
                     </connections>
                 </viewController>

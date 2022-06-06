@@ -1,5 +1,5 @@
 //
-//  Signed_In.swift
+//  SignedInVC.swift
 //  YGOReview
 //
 //  Created by stlp on 5/29/22.
@@ -8,18 +8,17 @@
 import Foundation
 import UIKit
 
-class CardTableDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate{
+class CardTableDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+    weak var vc: SignedInVC?
+    weak var table: UITableView?
+    var userType: String?
+    var filteredData: [String] = []
     
-    weak var vc : SignedInVC?
-    weak var table : UITableView?
-    var userType : String?
-    
-
     // TODO: Initilize this with the names of cards from an API call
-    var data = ["H - Heated Heart", "O - Oversoul", "W-Wing Catapult", "Nirvana High Paladin"]
+    var data = ["H - Heated Heart", "O - Oversoul", "W-Wing Catapult"]
     // Return the number of rows for the table.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return filteredData.count
     }
     
     // Provide a cell object for each row.
@@ -28,53 +27,70 @@ class CardTableDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         // Configure the cell’s contents.
-        cell.textLabel!.text = data[indexPath.row]
+        cell.textLabel!.text = filteredData[indexPath.row]
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cardVC = vc?.storyboard?.instantiateViewController(withIdentifier: "detail") as! CardVC
-        cardVC.card = data[indexPath.row]
+        cardVC.card = filteredData[indexPath.row]
         cardVC.signedIn = (userType == "new" || userType == "old")
         cardVC.email = vc!.email
         vc?.navigationController?.pushViewController(cardVC, animated: true)
-        self.table!.deselectRow(at: indexPath, animated: true)
-        
+        table!.deselectRow(at: indexPath, animated: true)
     }
- 
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredData = searchText.isEmpty ? data : data.filter { (item: String) -> Bool in
+            // If dataItem matches the searchText, return true to include it
+            item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        }
+        
+        table!.reloadData()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+            vc!.searchBar.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        filteredData = data
+        table!.reloadData()
+        vc!.searchBar.showsCancelButton = false
+        vc!.searchBar.text = ""
+        vc!.searchBar.resignFirstResponder()
+    }
 }
 
-
 class SignedInVC: UIViewController {
-    
-    @IBOutlet weak var table: UITableView!
+    @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var table: UITableView!
     
     var email = ""
     public var userType = ""
     var dataSourceAndDelegate = CardTableDataSourceAndDelegate()
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
         dataSourceAndDelegate.vc = self
         dataSourceAndDelegate.userType = userType
         dataSourceAndDelegate.table = table
+        searchBar.delegate = dataSourceAndDelegate
         
         let DIFOURL = URL(string: "https://db.ygoprodeck.com/api/v7/cardinfo.php?cardset=dimension%20force")!
         getJsonCardData(DIFOURL)
-        //getListOfCardsThruSearch("wizard")
-        self.title = "Cards"
+        // getListOfCardsThruSearch("wizard")
+        title = "Cards"
         navigationController?.navigationBar.backItem?.title = "Sign Out"
     }
     
-    func getListOfCardsThruSearch (_ searchString: String!) {
-       let searchURLBaseCall = "https://db.ygoprodeck.com/api/v7/cardinfo.php?fname="
-       let myURLString = searchURLBaseCall + searchString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-       print(myURLString)
-       getJsonCardData(URL(string: myURLString)!)
+    func getListOfCardsThruSearch(_ searchString: String!) {
+        let searchURLBaseCall = "https://db.ygoprodeck.com/api/v7/cardinfo.php?fname="
+        let myURLString = searchURLBaseCall + searchString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        print(myURLString)
+        getJsonCardData(URL(string: myURLString)!)
     }
     
     func getJsonCardData(_ url: URL) {
@@ -105,11 +121,11 @@ class SignedInVC: UIViewController {
                             print(card)
                         }
                         self.dataSourceAndDelegate.data = cardNameList
+                        dataSourceAndDelegate.filteredData = cardNameList
                         self.table.delegate = dataSourceAndDelegate
                         self.table.dataSource = dataSourceAndDelegate
                         self.table.reloadData()
                     }
-                    
                 }
             }
             catch {
@@ -118,6 +134,4 @@ class SignedInVC: UIViewController {
         }
         session.resume()
     }
-    
-
 }
