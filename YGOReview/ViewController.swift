@@ -64,7 +64,7 @@ class ViewController: UIViewController {
             displayAlert("Email ERROR", "Please Enter a valid email" + " with @ also",
                          "An password error")
         } else {
-            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { _, error in
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { [self] _, error in
                 guard error == nil else {
                     self.displayAlert("Firebase Login Issue", "Cant login you in try again later",
                                       "FireBase login Issues")
