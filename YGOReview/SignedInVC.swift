@@ -63,10 +63,18 @@ class SignedInVC: UIViewController {
         dataSourceAndDelegate.table = table
         
         let DIFOURL = URL(string: "https://db.ygoprodeck.com/api/v7/cardinfo.php?cardset=dimension%20force")!
-        getJsonCardData(DIFOURL)
+        //getJsonCardData(DIFOURL)
+        getListOfCardsThruSearch("wizard")
         
         self.title = "Cards"
         navigationController?.navigationBar.backItem?.title = "Sign Out"
+    }
+    
+    func getListOfCardsThruSearch (_ searchString: String!) {
+       let searchURLBaseCall = "https://db.ygoprodeck.com/api/v7/cardinfo.php?fname="
+       let myURLString = searchURLBaseCall + searchString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+       print(myURLString)
+       getJsonCardData(URL(string: myURLString)!)
     }
     
     func getJsonCardData(_ url: URL) {
