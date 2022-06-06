@@ -13,6 +13,7 @@ class Review: NSObject {
     var desc : String
     var stars : Int
     var comments : [String]
+    private var datarepo = DataRepository()
     
     init(_ author: String, _ card: String, _ desc: String, _ stars: Int, _ comments: [String]) {
         self.author = author
@@ -20,5 +21,10 @@ class Review: NSObject {
         self.desc = desc
         self.stars = stars
         self.comments = comments
+        //downloadComments()
+    }
+    
+    func downloadComments(){
+        datarepo.getAllCommentsForReview(card, author, self)
     }
 }

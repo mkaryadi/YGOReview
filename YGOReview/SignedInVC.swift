@@ -96,9 +96,7 @@ class SignedInVC: UIViewController {
             sortType = false
         } else {
             sender.title = "Sort Alphabetically"
-            // TODO: Sort by rating
-            self.dataSourceAndDelegate.filteredData = [] // Should set it equal to a sorted array here
-            self.table.reloadData()
+            getListOfCardsByRating()
             sortType = true
         }
     }
@@ -131,6 +129,48 @@ class SignedInVC: UIViewController {
                     print(dict)
                     let actualObject = dict["data"] as? [[String: Any]]
                     for info in actualObject! {
+                        let cardName = (info["name"] as! String)
+                        cardNameList.append(cardName)
+                    }
+                    DispatchQueue.main.async { [self] in
+                        for card in cardNameList {
+                            print(card)
+                        }
+                        self.dataSourceAndDelegate.data = cardNameList
+                        dataSourceAndDelegate.filteredData = cardNameList
+                        self.alphaList = cardNameList
+                        self.table.delegate = dataSourceAndDelegate
+                        self.table.dataSource = dataSourceAndDelegate
+                        self.table.reloadData()
+                    }
+                }
+            }
+            catch {
+                print("Something went boom")
+            }
+        }
+        session.resume()
+    }
+    
+    func getListOfCardsByRating() {
+        var cardNameList: [String] = []
+        var url = URL(string: "https://desolate-ridge-13493.herokuapp.com/cardsbyRating")!
+        let session = URLSession.shared.dataTask(with: url) {
+            data, response, error in
+            
+            if response != nil {
+                if (response! as! HTTPURLResponse).statusCode != 200 {
+                    print("Something went wrong! \(error)")
+                }
+            }
+            
+            let httpResponse = response! as! HTTPURLResponse
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!)
+                print(json)
+                if let actualObject = json as? [[String: Any]] {
+                    for info in actualObject {
                         let cardName = (info["name"] as! String)
                         cardNameList.append(cardName)
                     }
