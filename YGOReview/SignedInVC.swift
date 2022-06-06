@@ -63,8 +63,8 @@ class SignedInVC: UIViewController {
         dataSourceAndDelegate.table = table
         
         let DIFOURL = URL(string: "https://db.ygoprodeck.com/api/v7/cardinfo.php?cardset=dimension%20force")!
-        //getJsonCardData(DIFOURL)
-        getListOfCardsThruSearch("wizard")
+        getJsonCardData(DIFOURL)
+        //getListOfCardsThruSearch("wizard")
         
         self.title = "Cards"
         navigationController?.navigationBar.backItem?.title = "Sign Out"
@@ -107,6 +107,7 @@ class SignedInVC: UIViewController {
                         self.dataSourceAndDelegate.data = cardNameList
                         self.table.delegate = dataSourceAndDelegate
                         self.table.dataSource = dataSourceAndDelegate
+                        self.table.reloadData()
                     }
                     
                 }
