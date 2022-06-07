@@ -5,17 +5,7 @@
 //  Created by Matthew Karyadi on 5/26/22.
 //
 import Firebase
-import FirebaseAnalyticsOnDeviceConversionTarget
-import FirebaseAnalyticsTarget
-import FirebaseAppDistribution
-import FirebaseAppDistributionTarget
 import FirebaseAuth
-import FirebaseAuthCombineSwift
-import FirebaseCore
-import FirebaseCoreDiagnostics
-import FirebaseCoreInternal
-import FirebaseInstallations
-import FirebaseSharedSwift
 import UIKit
 
 class ViewController: UIViewController {
