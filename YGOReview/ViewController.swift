@@ -14,7 +14,6 @@ import FirebaseAuthCombineSwift
 import FirebaseCore
 import FirebaseCoreDiagnostics
 import FirebaseCoreInternal
-import FirebaseDatabase
 import FirebaseInstallations
 import FirebaseSharedSwift
 import UIKit
@@ -31,8 +30,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let dataRepo = DataRepository()
-        dataRepo.getAllReviewsByUser("ramirost")
-        //dataRepo.getAllReviewsByCard("Tornado Dragon")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,7 +37,6 @@ class ViewController: UIViewController {
         emailField.text = ""
         passwordField.text = ""
         navigationController?.isNavigationBarHidden = true
-        
     }
 
     @IBAction func signUp(_ sender: Any) {
@@ -49,8 +45,6 @@ class ViewController: UIViewController {
         if password.isEmpty || email.isEmpty ||
             email.count < 6 || password.count < 6
         {
-            print("ABDIWAHID PAssword is", password)
-            print("DEBUG", "Email is", email)
             displayAlert("Invalid Email Password", "Please Enter a valid email/Password",
                          "An email Password error")
         } else if password.isEmpty || password.count < 6 && !email.isEmpty &&
@@ -66,7 +60,7 @@ class ViewController: UIViewController {
         } else {
             FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { [self] _, error in
                 guard error == nil else {
-                    self.displayAlert("Firebase Login Issue", "Cant login you in try again later",
+                    self.displayAlert("Firebase Login Issue", "Can't login you in, please try again later",
                                       "FireBase login Issues")
                     return
                 }
@@ -86,17 +80,17 @@ class ViewController: UIViewController {
         if password.isEmpty && email.isEmpty ||
             email.count < 6 && password.count < 6
         {
-            displayAlert("Invalid Email Password", "Please Enter a valid email/Password",
+            displayAlert("Invalid Email/Password", "Please Enter a Valid Email/Password",
                          "An email Password error")
         } else if password.isEmpty || password.count < 6 && !email.isEmpty &&
             email.count > 6 && email.contains("@")
         {
-            displayAlert("PASSWORD ERROR", "Please Enter a valid password" + " 6 digits",
+            displayAlert("Invalid Password", "Please Enter a Valid Password" + " 6 digits",
                          "An Password error")
         } else if email.isEmpty || email.count < 6 || !email.contains("@") &&
             !password.isEmpty && password.count > 6
         {
-            displayAlert("Email ERROR", "Please Enter a valid email" + " with @ also",
+            displayAlert("Invalid Email", "Please Enter a Valid jemail" + " with @ also",
                          "An password error")
         } else {
             FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password, completion: { _, error in
@@ -118,8 +112,8 @@ class ViewController: UIViewController {
     @IBAction func continueAsGuest(_ sender: Any) {
         let loginedInGuestVC = storyboard?.instantiateViewController(withIdentifier: "Success") as! SignedInVC
         loginedInGuestVC.userType = "guest"
-        self.navigationController?.pushViewController(loginedInGuestVC, animated: true)
-        self.navigationController?.isNavigationBarHidden = false
+        navigationController?.pushViewController(loginedInGuestVC, animated: true)
+        navigationController?.isNavigationBarHidden = false
     }
     
     func displayAlert(_ title: String, _ message: String, _ LogError: String) {
