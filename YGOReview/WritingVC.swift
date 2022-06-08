@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WritingVC: UIViewController, UITextViewDelegate {
+class WritingVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     @IBOutlet var reviewTextView: UITextView!
     @IBOutlet var starRating: UITextField!
     
@@ -36,9 +36,15 @@ class WritingVC: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         reviewTextView.delegate = self
         reviewTextView.textColor = .lightGray
+        starRating.delegate = self
         // Do any additional setup after loading the view.
     }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == .lightGray {
             textView.text = ""
@@ -46,6 +52,15 @@ class WritingVC: UIViewController, UITextViewDelegate {
         }
     }
 
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if "\n" == text {
+            textView.resignFirstResponder()
+            return false
+        }
+        
+        return true
+    }
+    
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = "Write your review here..."

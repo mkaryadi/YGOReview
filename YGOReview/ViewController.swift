@@ -8,7 +8,7 @@ import Firebase
 import FirebaseAuth
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     private var email = ""
     private var password = ""
     
@@ -18,8 +18,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         passwordField.isSecureTextEntry = true
         super.viewDidLoad()
-        
+        emailField.delegate = self
+        passwordField.delegate = self
         let dataRepo = DataRepository()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     override func viewWillAppear(_ animated: Bool) {
