@@ -48,7 +48,7 @@ class WritingVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == .lightGray {
             textView.text = ""
-            textView.textColor = .black
+            textView.textColor = .label
         }
     }
 
